@@ -36,7 +36,6 @@ class ToolsBar extends StatelessWidget {
                 fontWeight: FontWeight.w200,
               ),
             ),
-            const SizedBox(height: 12.0),
             GridView.count(
               shrinkWrap: true,
               crossAxisCount: 2,
@@ -75,7 +74,6 @@ class ToolsBar extends StatelessWidget {
                 fontWeight: FontWeight.w200,
               ),
             ),
-            const SizedBox(height: 12.0),
             GridView.count(
               shrinkWrap: true,
               crossAxisCount: 2,
@@ -99,7 +97,6 @@ class ToolsBar extends StatelessWidget {
                 fontWeight: FontWeight.w200,
               ),
             ),
-            const SizedBox(height: 12.0),
             GridView.count(
               shrinkWrap: true,
               crossAxisCount: 2,
@@ -123,7 +120,6 @@ class ToolsBar extends StatelessWidget {
                 fontWeight: FontWeight.w200,
               ),
             ),
-            const SizedBox(height: 12.0),
             GridView.count(
               shrinkWrap: true,
               crossAxisCount: 2,
