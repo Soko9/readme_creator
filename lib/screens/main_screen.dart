@@ -221,7 +221,10 @@ class _MainScreenState extends State<MainScreen> {
                       width: MediaQuery.of(context).size.width * 0.15,
                       child: FilledButton(
                         onPressed: () {},
-                        child: const Text("export as .md file"),
+                        child: const Text(
+                          "export as .md file",
+                          style: TextStyle(fontSize: 14.0),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 48.0),
