@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/items/base_item.dart";
 
 class QuoteItem extends BaseItem<String> {
@@ -11,7 +11,7 @@ class QuoteItem extends BaseItem<String> {
   }) : super(
           title: quote,
           type: "Quote",
-          icon: Icons.format_quote_rounded,
+          icon: ASSETS.quote,
         );
 
   @override

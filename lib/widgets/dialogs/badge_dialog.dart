@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:readme_creator/constants/colors.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/items/items.dart";
 
@@ -147,14 +146,18 @@ class _BadgeDialogState extends State<BadgeDialog> {
                       margin: const EdgeInsets.all(4.0),
                       decoration: BoxDecoration(
                         color: _badge == badge
-                            ? Theme.of(context).colorScheme.primaryContainer
-                            : COLORS.border,
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.primaryContainer,
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                       child: Text(
                         badge.name.replaceAll(RegExp(r"(\d+)"), " "),
-                        style: const TextStyle(
-                          color: COLORS.back,
+                        style: TextStyle(
+                          color: _badge == badge
+                              ? Theme.of(context).colorScheme.onPrimary
+                              : Theme.of(context)
+                                  .colorScheme
+                                  .onPrimaryContainer,
                           fontSize: 16.0,
                         ),
                       ),

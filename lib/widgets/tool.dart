@@ -1,3 +1,5 @@
+import "dart:math";
+
 import "package:flutter/material.dart";
 import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/items/base_item.dart";
@@ -12,8 +14,6 @@ class Tool<T extends Object> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
     return LayoutBuilder(
       builder: (context, constraints) {
         final Widget child = Material(
@@ -26,28 +26,11 @@ class Tool<T extends Object> extends StatelessWidget {
             preferBelow: false,
             child: Wrapper(
               child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      item.icon,
-                      color: COLORS.back,
-                      size: size.width * 0.02,
-                    ),
-                    if (constraints.minWidth >= SIZES.screenWidthThreshold)
-                      FittedBox(
-                        child: Text(
-                          item.type,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            // fontSize: size.width * 0.01,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.25,
-                            color: COLORS.back,
-                          ),
-                        ),
-                      ),
-                  ],
+                child: Image.asset(
+                  item.icon,
+                  width: SIZES.iconSize,
+                  height: SIZES.iconSize,
+                  color: COLORS.primary,
                 ),
               ),
             ),
@@ -55,11 +38,11 @@ class Tool<T extends Object> extends StatelessWidget {
         );
 
         return Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(8.0),
           child: Draggable<BaseItem>(
             data: item,
-            feedback: Opacity(
-              opacity: 0.7,
+            feedback: Transform.rotate(
+              angle: pi / 12.0,
               child: child,
             ),
             childWhenDragging: child,

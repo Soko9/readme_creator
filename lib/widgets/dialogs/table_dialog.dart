@@ -118,11 +118,13 @@ class _TableDialogState extends State<TableDialog> {
                           decoration: BoxDecoration(
                             border: Border.all(
                               width: _currentIndex == (index * _rows) + i
-                                  ? 1.5
-                                  : 0.5,
+                                  ? 3.5
+                                  : 0.75,
                               color: _currentIndex == (index * _rows) + i
-                                  ? COLORS.primary
-                                  : COLORS.border,
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
                             ),
                             borderRadius: BorderRadius.circular(4.0),
                           ),
@@ -333,18 +335,22 @@ class _TableDialogState extends State<TableDialog> {
                   height: 32.0,
                   decoration: BoxDecoration(
                     color: _alignments[i] == TableAlign.values[index]
-                        ? Theme.of(context).colorScheme.primaryContainer
-                        : COLORS.border,
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.primaryContainer,
                     borderRadius: BorderRadius.circular(2.0),
                   ),
                   child: Center(
-                    child: Text(
-                      TableAlign.values[index].name.toUpperCase()[0],
-                      style: TextStyle(
-                        color: _alignments[i] == TableAlign.values[index]
-                            ? COLORS.back
-                            : Theme.of(context).colorScheme.primaryContainer,
-                      ),
+                    child: Image.asset(
+                      TableAlign.values[index] == TableAlign.left
+                          ? ASSETS.alignLeft
+                          : TableAlign.values[index] == TableAlign.right
+                              ? ASSETS.alignRight
+                              : ASSETS.alignCenter,
+                      width: 22.0,
+                      height: 22.0,
+                      color: _alignments[i] == TableAlign.values[index]
+                          ? Theme.of(context).colorScheme.onPrimary
+                          : Theme.of(context).colorScheme.onPrimaryContainer,
                     ),
                   ),
                 ),

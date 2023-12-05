@@ -1,23 +1,12 @@
 import "package:flutter/material.dart";
 
 class COLORS {
-  static const Color border = Color(0xFFDDDDDD);
-  static const Color back = Color(0xFFFFFFFF);
-  static final MaterialColor swatch = MaterialColor(
-    primary.value,
-    const {
-      50: primary,
-      100: primary,
-      200: primary,
-      300: primary,
-      400: primary,
-      500: primary,
-      600: primary,
-      700: primary,
-      800: primary,
-      900: primary,
-    },
-  );
-  static const Color primary = Color(0xFF000000);
-  static const Color delete = Color(0xFFFE3939);
+  COLORS._();
+
+  static const Color primary = Color(0xFF577FB2);
+  // static const Color orchidPink = Color(0xFFF7B5CC);
+  // static const Color lavenderBlush = Color(0xFFFDECF2);
+  // static const Color blueGray = Color(0xFF7192BE);
+  static const Color black = Color(0xFF000500);
+  static const Color white = Color(0xFFFFFFFF);
 }

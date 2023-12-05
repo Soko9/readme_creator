@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/extensions/extensions.dart";
 import "package:readme_creator/items/base_item.dart";
@@ -20,7 +20,7 @@ class BadgeItem extends BaseItem {
   }) : super(
           title: badge.name.replaceNumbersWithSpaces,
           type: "Badge",
-          icon: Icons.panorama_horizontal_select_sharp,
+          icon: ASSETS.badge,
         );
 
   @override

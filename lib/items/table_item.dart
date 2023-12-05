@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/items/base_item.dart";
 
@@ -16,7 +16,7 @@ class TableItem extends BaseItem {
   }) : super(
           title: "[$rows x $cols]",
           type: "Table",
-          icon: Icons.table_chart_rounded,
+          icon: ASSETS.table,
         );
 
   @override

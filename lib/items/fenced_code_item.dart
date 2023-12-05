@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/items/base_item.dart";
 
@@ -12,7 +12,7 @@ class FencedCodeItem extends BaseItem<String> {
   }) : super(
           title: code,
           type: "Fenced Code",
-          icon: Icons.code,
+          icon: ASSETS.fencedCode,
         );
 
   @override

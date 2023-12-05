@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:readme_creator/constants/constants.dart";
 
 class Wrapper extends StatelessWidget {
   final Widget child;
@@ -14,10 +13,10 @@ class Wrapper extends StatelessWidget {
     return IntrinsicHeight(
       child: Container(
         decoration: BoxDecoration(
-          color: COLORS.primary,
+          color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(4.0),
         ),
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(4.0),
         child: child,
       ),
     );

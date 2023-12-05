@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/items/base_item.dart";
 
 class ImageItem extends BaseItem {
@@ -13,7 +13,7 @@ class ImageItem extends BaseItem {
   }) : super(
           title: path,
           type: "Image",
-          icon: Icons.image_rounded,
+          icon: ASSETS.image,
         );
 
   @override

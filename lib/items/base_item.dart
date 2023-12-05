@@ -1,9 +1,7 @@
-import "package:flutter/material.dart";
-
 abstract class BaseItem<T extends Object> {
   final String title;
   final String _type;
-  final IconData icon;
+  final String icon;
 
   const BaseItem({
     required this.title,

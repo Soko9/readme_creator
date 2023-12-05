@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/items/items.dart";
 
-import "../../constants/constants.dart";
 import "../../items/base_item.dart";
 import "../dialog_done_button.dart";
 
@@ -87,16 +86,16 @@ class _FencedCodeDialogState extends State<FencedCodeDialog> {
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: _currentLanguage == Languages.values[index]
-                    ? Theme.of(context).colorScheme.primaryContainer
-                    : COLORS.border,
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(2.0),
               ),
               child: Text(
                 Languages.values[index].name,
                 style: TextStyle(
                   color: _currentLanguage == Languages.values[index]
-                      ? COLORS.back
-                      : Theme.of(context).colorScheme.primaryContainer,
+                      ? Theme.of(context).colorScheme.onPrimary
+                      : Theme.of(context).colorScheme.onPrimaryContainer,
                 ),
               ),
             ),

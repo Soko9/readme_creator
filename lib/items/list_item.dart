@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/items/base_item.dart";
 
@@ -12,7 +12,7 @@ class ListItem extends BaseItem {
   }) : super(
           title: "List",
           type: "List",
-          icon: Icons.format_list_bulleted_rounded,
+          icon: ASSETS.list,
         );
 
   @override

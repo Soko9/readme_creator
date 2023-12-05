@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/widgets/target_box.dart";
 
-import "../../constants/constants.dart";
 import "../../items/base_item.dart";
 import "../../items/items.dart";
 import "../dialog_done_button.dart";
@@ -252,16 +251,16 @@ class _ListDialogState extends State<ListDialog> {
             margin: const EdgeInsets.symmetric(horizontal: 12.0),
             decoration: BoxDecoration(
               color: _currentType == ListType.values[index]
-                  ? Theme.of(context).colorScheme.primaryContainer
-                  : COLORS.border,
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.primaryContainer,
               borderRadius: BorderRadius.circular(2.0),
             ),
             child: Text(
               ListType.values[index].name,
               style: TextStyle(
                 color: _currentType == ListType.values[index]
-                    ? COLORS.back
-                    : Theme.of(context).colorScheme.primaryContainer,
+                    ? Theme.of(context).colorScheme.onPrimary
+                    : Theme.of(context).colorScheme.onPrimaryContainer,
               ),
             ),
           ),

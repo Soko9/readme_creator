@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 
 import "base_item.dart";
 
@@ -7,7 +7,7 @@ class DividerItem extends BaseItem {
       : super(
           title: "",
           type: "Divider",
-          icon: Icons.safety_divider_rounded,
+          icon: ASSETS.divider,
         );
 
   @override

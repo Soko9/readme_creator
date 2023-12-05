@@ -5,8 +5,6 @@ import "package:readme_creator/controllers/canvas_controller.dart";
 import "package:readme_creator/items/base_item.dart";
 import "package:readme_creator/items/items.dart";
 
-import "wrapper.dart";
-
 class Target<T extends Object> extends StatelessWidget {
   final BaseItem<Object> item;
 
@@ -21,84 +19,53 @@ class Target<T extends Object> extends StatelessWidget {
     switch (item) {
       case HeaderItem():
         target =
-            "Header ${(item as HeaderItem).header.hash.length}:\n${item.title}";
+            "Header ${(item as HeaderItem).header.hash.length}:\n${item.toYaml()}";
         break;
       case FencedCodeItem():
         target =
-            "Fenced Code (${(item as FencedCodeItem).language.name}):\n${item.title}";
+            "Fenced Code (${(item as FencedCodeItem).language.name}):\n${item.toYaml()}";
       case ListItem():
         target =
-            "${(item as ListItem).listType.name[0].toUpperCase() + (item as ListItem).listType.name.substring(1)} List:\n${"[${(item as ListItem).items.map((e) => "$e ")}]"}";
-        break;
-      case DividerItem():
-        target = "";
+            "${(item as ListItem).listType.name[0].toUpperCase() + (item as ListItem).listType.name.substring(1)} List:\n${item.toYaml()}";
         break;
       default:
-        target = "${item.type}:\n${item.title}";
+        target = "${item.type}:\n${item.toYaml()}";
     }
-    final Widget child = item is DividerItem
-        ? IntrinsicHeight(
-            child: SizedBox(
-              child: ListTile(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-                tileColor: COLORS.border.withOpacity(0.7),
-                // leading: const Icon(
-                //   Icons.drag_indicator_rounded,
-                //   size: 20.0,
-                //   color: COLORS.primary,
-                // ),
-                trailing: IconButton(
-                  onPressed: () {
-                    Provider.of<CanvasController>(context, listen: false)
-                        .removeItem(item: item);
-                  },
-                  icon: const Icon(Icons.remove),
-                  iconSize: 20.0,
-                  color: COLORS.delete,
-                  splashRadius: 2.0,
-                ),
-              ),
-            ),
-          )
-        : Wrapper(
-            child: ListTile(
-              title: Wrapper(
-                child: Text(
-                  target,
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    color: COLORS.back,
-                  ),
-                ),
-              ),
-              // leading: const Icon(
-              //   Icons.drag_indicator_rounded,
-              //   size: 24.0,
-              //   color: COLORS.back,
-              // ),
-              trailing: IconButton(
-                onPressed: () {
-                  Provider.of<CanvasController>(context, listen: false)
-                      .removeItem(item: item);
-                },
-                icon: const Icon(Icons.remove),
-                iconSize: 24.0,
-                color: COLORS.delete,
-                splashRadius: 2.0,
-              ),
-            ),
-          );
+    final Widget child = ListTile(
+      tileColor: item is DividerItem
+          ? Theme.of(context).colorScheme.secondaryContainer
+          : Theme.of(context).scaffoldBackgroundColor,
+      contentPadding: EdgeInsets.all(item is DividerItem ? 8.0 : 24.0),
+      title: Text(
+        target,
+        textAlign: TextAlign.start,
+        style: const TextStyle(
+          color: COLORS.black,
+        ),
+      ),
+      // leading: const Icon(
+      //   Icons.drag_indicator_rounded,
+      //   size: 24.0,
+      //   color: COLORS.back,
+      // ),
+      trailing: IconButton(
+        onPressed: () {
+          Provider.of<CanvasController>(context, listen: false)
+              .removeItem(item: item);
+        },
+        icon: Image.asset(
+          ASSETS.remove,
+          height: 18.0,
+          width: 18.0,
+          color: COLORS.black,
+        ),
+      ),
+    );
 
     return Material(
       color: Colors.transparent,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 12.0,
-          horizontal: 24.0,
-        ),
+        padding: const EdgeInsets.all(12.0),
         child: SizedBox(
           width: double.infinity,
           child: child,

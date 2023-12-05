@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/items/items.dart";
 
 import "tool.dart";
@@ -14,120 +13,161 @@ class ToolsBar extends StatelessWidget {
     return Container(
       width: size.width * 0.2,
       height: size.height,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
+        color: Colors.white,
         border: Border(
           right: BorderSide(
             width: 2.0,
-            color: COLORS.border,
+            color: Theme.of(context).colorScheme.primaryContainer,
           ),
         ),
       ),
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            const SizedBox(height: 12.0),
-            const Text(
-              "Primitives",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey,
-                fontWeight: FontWeight.w200,
+      child: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const SizedBox(height: 24.0),
+              const Text(
+                "primitives",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  letterSpacing: 2.25,
+                ),
               ),
-            ),
-            GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              children: const [
-                Tool<HeaderItem>(
-                  item: HeaderItem(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(4.0),
                 ),
-                Tool<ParagraphItem>(
-                  item: ParagraphItem(),
+                padding: const EdgeInsets.all(4.0),
+                margin: const EdgeInsets.all(8.0),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  padding: EdgeInsets.zero,
+                  children: const [
+                    Tool<HeaderItem>(
+                      item: HeaderItem(),
+                    ),
+                    Tool<ParagraphItem>(
+                      item: ParagraphItem(),
+                    ),
+                    Tool<InlineCodeItem>(
+                      item: InlineCodeItem(),
+                    ),
+                    Tool<FencedCodeItem>(
+                      item: FencedCodeItem(),
+                    ),
+                    Tool<ImageItem>(
+                      item: ImageItem(),
+                    ),
+                    Tool<LinkItem>(
+                      item: LinkItem(),
+                    ),
+                    Tool<QuoteItem>(
+                      item: QuoteItem(),
+                    ),
+                  ],
                 ),
-                Tool<InlineCodeItem>(
-                  item: InlineCodeItem(),
-                ),
-                Tool<FencedCodeItem>(
-                  item: FencedCodeItem(),
-                ),
-                Tool<ImageItem>(
-                  item: ImageItem(),
-                ),
-                Tool<LinkItem>(
-                  item: LinkItem(),
-                ),
-                Tool<QuoteItem>(
-                  item: QuoteItem(),
-                ),
-              ],
-            ),
-            const SizedBox(height: 32.0),
-            Divider(color: COLORS.border.withOpacity(0.75)),
-            const Text(
-              "Containers",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey,
-                fontWeight: FontWeight.w200,
               ),
-            ),
-            GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              children: [
-                Tool<ListItem>(
-                  item: ListItem(),
+              const SizedBox(height: 24.0),
+              const Text(
+                "containers",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  letterSpacing: 2.25,
                 ),
-                const Tool<TableItem>(
-                  item: TableItem(),
-                ),
-              ],
-            ),
-            const SizedBox(height: 24.0),
-            Divider(color: COLORS.border.withOpacity(0.75)),
-            const Text(
-              "Dynamic",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey,
-                fontWeight: FontWeight.w200,
               ),
-            ),
-            GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              children: [
-                Tool<BadgeItem>(
-                  item: BadgeItem(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(4.0),
                 ),
-                const Tool<ContributersItem>(
-                  item: ContributersItem(),
+                padding: const EdgeInsets.all(4.0),
+                margin: const EdgeInsets.all(8.0),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  padding: EdgeInsets.zero,
+                  children: [
+                    Tool<ListItem>(
+                      item: ListItem(),
+                    ),
+                    const Tool<TableItem>(
+                      item: TableItem(),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            const SizedBox(height: 24.0),
-            Divider(color: COLORS.border.withOpacity(0.75)),
-            const Text(
-              "Other",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey,
-                fontWeight: FontWeight.w200,
               ),
-            ),
-            GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              children: const [
-                Tool<DividerItem>(item: DividerItem()),
-              ],
-            ),
-          ],
+              const SizedBox(height: 24.0),
+              const Text(
+                "dynamic",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  letterSpacing: 2.25,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                padding: const EdgeInsets.all(4.0),
+                margin: const EdgeInsets.all(8.0),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  padding: EdgeInsets.zero,
+                  children: [
+                    Tool<BadgeItem>(
+                      item: BadgeItem(),
+                    ),
+                    const Tool<ContributersItem>(
+                      item: ContributersItem(),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24.0),
+              const Text(
+                "other",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  letterSpacing: 2.25,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                padding: const EdgeInsets.all(4.0),
+                margin: const EdgeInsets.all(8.0),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  padding: EdgeInsets.zero,
+                  children: const [
+                    Tool<DividerItem>(item: DividerItem()),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

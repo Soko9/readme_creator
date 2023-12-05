@@ -60,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
                       },
                       style: const TextStyle(
                         fontSize: 20.0,
-                        color: COLORS.primary,
+                        color: COLORS.black,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -71,7 +71,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         actions: [
-          FilledButton.tonal(
+          FilledButton(
             onPressed: () async {
               Navigator.pop(context);
               await saveFile();
@@ -118,100 +118,113 @@ class _MainScreenState extends State<MainScreen> {
       context: context,
       builder: (_) => AlertDialog(
         content: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
+          width: MediaQuery.of(context).size.width * 0.5,
           height: MediaQuery.of(context).size.height * 0.7,
           child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
             physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "*> There are 4 types of elements you can deal with: [primitives, containers, dynamic & other].\nAll you need to do is drag the item you want to the canvas target and fill out the needed info in the pop up dialog.",
+                  "There are 4 types of elements you can deal with: [primitives, containers, dynamic & other].\n\nAll you need to do is drag the item you want to the canvas target and fill out the needed info in the pop up dialog.\n\nAll the items inside the canvas are reorderable.",
                   style: TextStyle(
                     fontSize: 20.0,
-                    color: COLORS.primary,
+                    color: COLORS.black,
                   ),
                 ),
-                const SizedBox(height: 48.0),
-                const Text(
-                  "*> All the items inside the canvas are reorderable.",
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    color: COLORS.primary,
-                  ),
+                const Divider(
+                  indent: 0,
+                  endIndent: 0,
+                  thickness: 2.0,
+                  height: 120.0,
                 ),
-                const SizedBox(height: 48.0),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.15,
                       child: Center(
                         child: FloatingActionButton(
                           onPressed: () => clearCanvas(context: context),
                           elevation: 0,
-                          backgroundColor: COLORS.primary,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
                           hoverElevation: 0,
-                          child: const Icon(
-                            Icons.clear_all_rounded,
-                            color: COLORS.back,
+                          child: Image.asset(
+                            ASSETS.clearAll,
+                            width: 24.0,
+                            height: 24.0,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 24.0),
+                    const SizedBox(width: 48.0),
                     const Expanded(
                       child: Text(
                         "This button will clear all the elemnts from the canvas.",
                         style: TextStyle(
                           fontSize: 20.0,
+                          color: COLORS.black,
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 48.0),
+                const Divider(
+                  indent: 0,
+                  endIndent: 0,
+                  thickness: 2.0,
+                  height: 120.0,
+                ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.15,
                       child: Center(
                         child: FloatingActionButton(
                           onPressed: () => yamlPressed(context: context),
                           elevation: 0,
-                          backgroundColor: COLORS.primary,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
                           hoverElevation: 0,
-                          child: const Icon(
-                            Icons.expand_more_outlined,
-                            color: COLORS.back,
+                          child: Image.asset(
+                            ASSETS.export,
+                            width: 24.0,
+                            height: 24.0,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 24.0),
+                    const SizedBox(width: 48.0),
                     const Expanded(
                       child: Text(
                         "If canvas is empty, this will open a dialog\nwith empty space to write what ever you want (hopefully markdown text),\nif canvas has items, it will open a dialog\nwith all the items converted to markdown text, editable of course.",
                         style: TextStyle(
                           fontSize: 20.0,
+                          color: COLORS.black,
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 48.0),
+                const Divider(
+                  indent: 0,
+                  endIndent: 0,
+                  thickness: 2.0,
+                  height: 120.0,
+                ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      child: FilledButton.tonal(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      child: FilledButton(
                         onPressed: () {},
                         child: const Text("export as .md file"),
                       ),
                     ),
-                    const SizedBox(width: 24.0),
+                    const SizedBox(width: 48.0),
                     const Expanded(
                       child: Text(
                         "This button inside pop up dialog will export the text\nand save it as README.md file in your preffered directory.",
@@ -238,38 +251,35 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: COLORS.white,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        titleSpacing: MediaQuery.of(context).size.width * 0.21,
+        title: InkWell(
+          onTap: repoPressed,
+          child: Text(
+            "visit repo ->",
+            style: TextStyle(
+              fontSize: 18.0,
+              decorationThickness: 2.0,
+              fontWeight: FontWeight.w200,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
-            child: Row(
-              children: [
-                InkWell(
-                  onTap: repoPressed,
-                  child: const Text(
-                    "visit repo",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      decoration: TextDecoration.underline,
-                      decorationColor: COLORS.primary,
-                      fontWeight: FontWeight.w200,
-                      color: COLORS.primary,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 24.0),
-                IconButton(
-                  onPressed: infoPressed,
-                  icon: const Icon(
-                    Icons.info,
-                    color: COLORS.primary,
-                    size: 28.0,
-                  ),
-                ),
-              ],
+            child: IconButton(
+              onPressed: infoPressed,
+              icon: Image.asset(
+                ASSETS.info,
+                width: 26.0,
+                height: 26.0,
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
           ),
         ],
@@ -294,22 +304,26 @@ class _MainScreenState extends State<MainScreen> {
                       FloatingActionButton(
                         onPressed: () => clearCanvas(context: context),
                         elevation: 0,
-                        backgroundColor: COLORS.primary.withOpacity(0.7),
+                        backgroundColor: Theme.of(context).colorScheme.primary,
                         hoverElevation: 0,
-                        child: const Icon(
-                          Icons.clear_all_rounded,
-                          color: COLORS.back,
+                        child: Image.asset(
+                          ASSETS.clearAll,
+                          width: 24.0,
+                          height: 24.0,
+                          color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       ),
                       const SizedBox(width: 12.0),
                       FloatingActionButton(
                         onPressed: () => yamlPressed(context: context),
                         elevation: 0,
-                        backgroundColor: COLORS.primary.withOpacity(0.7),
+                        backgroundColor: Theme.of(context).colorScheme.primary,
                         hoverElevation: 0,
-                        child: const Icon(
-                          Icons.expand_more_outlined,
-                          color: COLORS.back,
+                        child: Image.asset(
+                          ASSETS.export,
+                          width: 24.0,
+                          height: 24.0,
+                          color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       ),
                     ],

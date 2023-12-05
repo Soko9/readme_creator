@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/items/base_item.dart";
 
 class ContributersItem extends BaseItem {
@@ -13,7 +13,7 @@ class ContributersItem extends BaseItem {
   }) : super(
           title: repo,
           type: "Contributers",
-          icon: Icons.groups,
+          icon: ASSETS.contributors,
         );
 
   @override

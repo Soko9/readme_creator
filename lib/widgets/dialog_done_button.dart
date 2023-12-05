@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:readme_creator/constants/constants.dart";
 
 class DialogDoneButton extends StatelessWidget {
   final VoidCallback onPress;
@@ -17,14 +16,14 @@ class DialogDoneButton extends StatelessWidget {
         onPressed: onPress,
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
-          backgroundColor: COLORS.primary.withOpacity(0.05),
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         ),
-        child: const Text(
+        child: Text(
           "Done",
           style: TextStyle(
             fontSize: 22.0,
             fontWeight: FontWeight.bold,
-            color: COLORS.primary,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
       ),

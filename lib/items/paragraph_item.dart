@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/items/base_item.dart";
 
 class ParagraphItem extends BaseItem<String> {
@@ -7,8 +7,8 @@ class ParagraphItem extends BaseItem<String> {
   const ParagraphItem({this.text = ""})
       : super(
           title: text,
-          type: "Paragraph",
-          icon: Icons.text_fields_rounded,
+          type: "Text",
+          icon: ASSETS.text,
         );
 
   @override

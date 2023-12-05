@@ -22,16 +22,31 @@ class TargetBox extends StatelessWidget {
         width: double.infinity,
         height: height,
         decoration: BoxDecoration(
+          border: Border.all(
+            width: 1.5,
+            color: Theme.of(context).colorScheme.primary,
+          ),
           borderRadius: BorderRadius.circular(4.0),
-          color: COLORS.border.withOpacity(0.25),
+          // gradient: RadialGradient(
+          //   colors: [
+          //     Theme.of(context).colorScheme.primaryContainer,
+          //     Theme.of(context).colorScheme.primaryContainer.withOpacity(0.6),
+          //   ],
+          //   center: Alignment.center,
+          //   // radius: 10.0,
+          //   tileMode: TileMode.mirror,
+          // ),
+          color:
+              Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
         ),
         margin:
             EdgeInsets.symmetric(horizontal: 12.0, vertical: verticalMargin),
-        child: const Center(
-          child: Icon(
-            Icons.add,
-            size: 24.0,
-            color: COLORS.primary,
+        child: Center(
+          child: Image.asset(
+            ASSETS.drop,
+            width: 28.0,
+            height: 28.0,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
       ),

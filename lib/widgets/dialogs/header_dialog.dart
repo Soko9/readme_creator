@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:readme_creator/constants/constants.dart";
 import "package:readme_creator/enums/enums.dart";
 import "package:readme_creator/items/items.dart";
 import "package:readme_creator/widgets/dialog_done_button.dart";
@@ -84,8 +83,8 @@ class _HeaderDialogState extends State<HeaderDialog> {
               height: 32.0,
               decoration: BoxDecoration(
                 color: _currentHeader == Headers.values[index]
-                    ? Theme.of(context).colorScheme.primaryContainer
-                    : COLORS.border,
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(2.0),
               ),
               child: Center(
@@ -93,8 +92,8 @@ class _HeaderDialogState extends State<HeaderDialog> {
                   (index + 1).toString(),
                   style: TextStyle(
                     color: _currentHeader == Headers.values[index]
-                        ? COLORS.back
-                        : Theme.of(context).colorScheme.primaryContainer,
+                        ? Theme.of(context).colorScheme.onPrimary
+                        : Theme.of(context).colorScheme.onPrimaryContainer,
                   ),
                 ),
               ),
