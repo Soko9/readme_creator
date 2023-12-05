@@ -1,3 +1,5 @@
-2023/12/05-19:34:33.001 9690 Reusing MANIFEST C:\Users\YAHYA\AppData\Local\Temp\flutter_tools.f0193dfa\flutter_tools_chrome_device.b6febfec\Default\Site Characteristics Database/MANIFEST-000001
-2023/12/05-19:34:33.005 9690 Recovering log #3
-2023/12/05-19:34:33.007 9690 Reusing old log C:\Users\YAHYA\AppData\Local\Temp\flutter_tools.f0193dfa\flutter_tools_chrome_device.b6febfec\Default\Site Characteristics Database/000003.log 
+2023/12/06-00:07:33.404 888c Log #3: 26 ops saved to Table #4 OK
+2023/12/06-00:07:33.408 888c Archiving C:\Users\YAHYA\AppData\Local\Temp\flutter_tools.860f5a33\flutter_tools_chrome_device.ff1f4ae2\Default\Site Characteristics Database/000003.log: OK
+2023/12/06-00:07:33.409 888c Table #4: 26 entries OK
+2023/12/06-00:07:33.413 888c Archiving C:\Users\YAHYA\AppData\Local\Temp\flutter_tools.860f5a33\flutter_tools_chrome_device.ff1f4ae2\Default\Site Characteristics Database/MANIFEST-000001: OK
+2023/12/06-00:07:33.424 888c **** Repaired leveldb C:\Users\YAHYA\AppData\Local\Temp\flutter_tools.860f5a33\flutter_tools_chrome_device.ff1f4ae2\Default\Site Characteristics Database; recovered 1 files; 867 bytes. Some data may have been lost. ****
