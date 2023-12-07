@@ -1,10 +1,10 @@
 ![logo](assets/logo.jpeg)
 
-<br>
+<!--<br>
 
 ![forks](https://img.shields.io/github/forks/soko9/readme_creator?color=blue&logo=github&label=Forks)
     &nbsp;&nbsp;&nbsp;&nbsp;![Stars](https://img.shields.io/github/stars/soko9/readme_creator?color=blue&logo=github&label=Stars)
-    <!-- <a href="https://www.github.com/soko9/readme_creator/"><img src="https://img.shields.io/badge/Visit_repo-here-green" /></a> -->
+     <a href="https://www.github.com/soko9/readme_creator/"><img src="https://img.shields.io/badge/Visit_repo-here-green" /></a> -->
 
 <br>
 
