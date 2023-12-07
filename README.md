@@ -2,11 +2,9 @@
 
 <br>
 
-<p style="text-align: center;">
-    <img src="https://img.shields.io/github/forks/soko9/readme_creator?color=blue&logo=github&label=F%20o%20r%20k%20s" />
-    &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://img.shields.io/github/stars/soko9/readme_creator?color=blue&logo=github&label=S%20t%20a%20r%20s" />
+![forks](https://img.shields.io/github/forks/soko9/readme_creator?color=blue&logo=github&label=Forks)
+    &nbsp;&nbsp;&nbsp;&nbsp;![Stars](https://img.shields.io/github/stars/soko9/readme_creator?color=blue&logo=github&label=Stars)
     <!-- <a href="https://www.github.com/soko9/readme_creator/"><img src="https://img.shields.io/badge/Visit_repo-here-green" /></a> -->
-</p>
 
 <br>
 
@@ -85,7 +83,7 @@
 
 <br>
 
-## Future enhancments
+## Future enhancements
 
 - Implement multiple **color schemes** along with **dark theme**
 - Fixing **inputs focusing** for seamless user experience
